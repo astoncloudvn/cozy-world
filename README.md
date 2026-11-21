@@ -316,4 +316,4 @@ The library provides generation utilities. Your game remains responsible for ren
 
 ## 📄 License
 
-MIT License. See [`LICENSE`](./LICENSE) for details.
+MIT License. See [`LICENSE`](./LICENSE) for details!
