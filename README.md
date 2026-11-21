@@ -14,15 +14,15 @@ Generate beautiful, reproducible worlds for cozy games, survival games, explorat
   <a href="https://www.npmjs.com/package/cozy-world">
     <img src="https://img.shields.io/npm/l/cozy-world?style=for-the-badge&color=8BC34A" alt="License" />
   </a>
-  <a href="https://github.com/neotwis/cozy-worlds">
-    <img src="https://img.shields.io/github/stars/neotwis/cozy-worlds?style=for-the-badge&color=FFC107" alt="GitHub stars" />
+  <a href="https://github.com/astoncloudvn/cozy-world">
+    <img src="https://img.shields.io/github/stars/astoncloudvn/cozy-world?style=for-the-badge&color=FFC107" alt="GitHub stars" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/cozy-world"><strong>📦 View on npm</strong></a>
   ·
-  <a href="https://github.com/neotwis/cozy-worlds"><strong>💻 GitHub Repository</strong></a>
+  <a href="https://github.com/astoncloudvn/cozy-world"><strong>💻 Source Repository</strong></a>
   ·
   <a href="https://www.npmjs.com/package/cozy-world"><strong>⬇️ Install Package</strong></a>
 </p>
@@ -31,14 +31,14 @@ Generate beautiful, reproducible worlds for cozy games, survival games, explorat
 
 ## ✨ Features
 
-- 🌍 **Procedural worlds** — Generate terrain, heightmaps, biomes, water, regions, and vegetation.
-- 🎲 **Deterministic generation** — The same seed and options produce the same world.
-- 📍 **Discoverable locations** — Generate named places and points of interest.
-- 🐾 **Dynamic wildlife** — Generate creatures influenced by season, weather, and time.
-- 🎁 **Procedural loot** — Generate loot with configurable luck.
-- 🌦️ **Living environments** — Advance time to simulate day/night cycles, seasons, and weather.
-- 🎨 **Rendering helpers** — Convert world data into image data or heightmap meshes.
-- 🧩 **Game-engine friendly** — Use generated data in your own game or rendering pipeline.
+- 🌍 **Procedural Worlds** — Generate terrain, heightmaps, biomes, water, regions, and vegetation.
+- 🎲 **Deterministic Generation** — The same seed and options produce the same world.
+- 📍 **Discoverable Locations** — Generate named places and points of interest.
+- 🐾 **Dynamic Wildlife** — Generate creatures influenced by seasons, weather, and time.
+- 🎁 **Procedural Loot** — Generate loot with configurable luck.
+- 🌦️ **Living Environments** — Simulate day/night cycles, seasons, and changing weather.
+- 🎨 **Rendering Helpers** — Convert world data into image data or heightmap meshes.
+- 🧩 **Game-engine Friendly** — Integrate generated data into your own game or rendering pipeline.
 
 ## 📦 Installation
 
@@ -51,10 +51,10 @@ npm install cozy-world
 Other package managers:
 
 ```bash
+# pnpm
 pnpm add cozy-world
-```
 
-```bash
+# yarn
 yarn add cozy-world
 ```
 
@@ -62,8 +62,8 @@ yarn add cozy-world
   <a href="https://www.npmjs.com/package/cozy-world">
     <img src="https://img.shields.io/badge/npm-cozy--world-CB3837?style=flat-square&logo=npm" alt="Install from npm" />
   </a>
-  <a href="https://github.com/neotwis/cozy-worlds">
-    <img src="https://img.shields.io/badge/source-GitHub-181717?style=flat-square&logo=github" alt="Source code on GitHub" />
+  <a href="https://github.com/astoncloudvn/cozy-world">
+    <img src="https://img.shields.io/badge/source-GitHub-181717?style=flat-square&logo=github" alt="Source code" />
   </a>
 </p>
 
@@ -80,7 +80,7 @@ const world = new CozyWorld({
 // Access generated world data
 console.log(world.map);
 
-// Generate a location with points of interest
+// Generate a location
 const location = world.generateLocation();
 console.log(location);
 
@@ -99,7 +99,7 @@ console.log(event);
 // Advance the simulation by six hours
 world.advanceTime(6);
 
-// Export or inspect the world
+// Export the world
 const savedWorld = world.toJSON();
 console.log(savedWorld);
 ```
@@ -120,9 +120,9 @@ const worldB = new CozyWorld({
 });
 ```
 
-Both worlds start from the same seed and options, making the initial generated world reproducible.
+Both worlds use the same seed and options, making their initial generated data reproducible.
 
-Change the seed to create a different world:
+Change the seed to generate a different world:
 
 ```ts
 const forestWorld = new CozyWorld({
@@ -131,13 +131,13 @@ const forestWorld = new CozyWorld({
 });
 ```
 
-**Why this matters:** reproducible generation makes it easier to save worlds, share seeds, test game logic, and recreate procedural environments.
+**Why it matters:** Reproducible generation makes it easier to save worlds, share seeds, test game logic, and recreate procedural environments.
 
 ## 🗺️ World Data
 
-The generated `world.map` provides the world data used by your game.
+The generated `world.map` provides the world data your game can use.
 
-Depending on the generated map structure, this can include:
+Depending on the generated map structure, this may include:
 
 - **Heightmap** — Terrain elevation data.
 - **Biomes** — Environmental regions and biome assignments.
@@ -202,13 +202,13 @@ Advance the world's simulation:
 world.advanceTime(6);
 ```
 
-Time progression can affect day/night, seasons, and weather. This lets you build game mechanics around changing environmental conditions.
+Time progression can affect day/night cycles, seasons, and weather. This allows you to build game mechanics around changing environmental conditions.
 
 ## 🎨 Rendering & Integration
 
-`cozy-world` generates world data; you can use that data with your own rendering engine.
+`cozy-world` generates world data that can be integrated with your own rendering engine.
 
-### 3D terrain
+### 3D Terrain
 
 Use `toHeightmapMesh(world.map)` to convert the map into heightmap mesh data for a 3D rendering pipeline, such as a Three.js `BufferGeometry` workflow.
 
@@ -228,7 +228,7 @@ const meshData = toHeightmapMesh(world.map);
 
 Adapt the returned mesh data to the geometry format required by your renderer.
 
-### 2D rendering
+### 2D Rendering
 
 Use `toImageData(world.map)` to obtain image data for a 2D canvas workflow.
 
@@ -256,15 +256,17 @@ Export the current world state:
 const data = world.toJSON();
 ```
 
-You can store the resulting data using your preferred save system, database, or storage format. Check the actual serialized structure before implementing a custom loader.
+You can store the resulting data using your preferred save system, database, or storage format.
+
+Check the actual serialized structure before implementing a custom loader.
 
 ## 🛠️ Development
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/neotwis/cozy-worlds.git
-cd cozy-worlds
+git clone https://github.com/astoncloudvn/cozy-world.git
+cd cozy-world
 ```
 
 Install dependencies:
@@ -296,7 +298,7 @@ npm test
 - Terrain generation experiments
 - 2D and 3D procedural environments
 
-The library provides generation utilities; your game is responsible for rendering, player interaction, and gameplay systems built on top of the generated data.
+The library provides generation utilities. Your game remains responsible for rendering, player interaction, and gameplay systems built on top of the generated data.
 
 ## 📚 Links
 
@@ -304,13 +306,13 @@ The library provides generation utilities; your game is responsible for renderin
   <a href="https://www.npmjs.com/package/cozy-world">
     <img src="https://img.shields.io/badge/Explore-cozy--world_on_npm-CB3837?style=for-the-badge&logo=npm" alt="Explore cozy-world on npm" />
   </a>
-  <a href="https://github.com/neotwis/cozy-worlds">
+  <a href="https://github.com/astoncloudvn/cozy-world">
     <img src="https://img.shields.io/badge/Source-GitHub-181717?style=for-the-badge&logo=github" alt="View source code" />
   </a>
 </p>
 
 - **npm package:** https://www.npmjs.com/package/cozy-world
-- **GitHub repository:** https://github.com/neotwis/cozy-worlds
+- **Source repository:** https://github.com/astoncloudvn/cozy-world
 
 ## 📄 License
 
